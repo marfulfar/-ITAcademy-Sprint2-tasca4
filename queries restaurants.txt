@@ -13,6 +13,10 @@ QUERIES RESTAURANT NOVA YORK MONGODB
 11- db.restaurant.find({$and:[{cuisine: {$ne:"American"}}, {"grades.score": { $gt: 90}},{"address.coord.0" : {$lt : -65.754168}}]})
 12- db.restaurant.find({"cuisine": {$ne:"American"},"grades.score": { $gt: 90},"address.coord.0" : {$lt : -65.754168}})
 13- db.restaurant.find({$and:[{"cuisine":{$ne : "american"}},{"grades.grade":"A"},{"borough":{$ne:"Brooklyn"}}]},{name:1,cuisine:1}).sort({ cuisine: -1 })
+
+TENINT EN COMPTE 	QUE CUISINE AMERICAN TÉ UN ESPAI DARRERA EL NOM! (ERROR VIST PER LA SUSSANA)
+13bis - restaurant_NY> db.restaurant.find({$and:[{cuisine: {$not:/American/}}, {"grades.score": { $gt: 90}},{"address.coord.0" : {$lt : -65.754168}}]})
+
 14- db.restaurant.find({name: /^Wil/i},{restaurant_id:1,name:1,borough:1,cuisine:1})
 15- db.restaurant.find({name:/ces$/i},{restaurant_id:1,name:1,borough:1,cuisine:1})
 16- db.restaurant.find({name:/Reg/},{restaurant_id:1,name:1,borough:1,cuisine:1})
